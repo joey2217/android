@@ -2,6 +2,12 @@
 
 1.gradle 加速
 
+```groovy
+ maven { url 'https://maven.aliyun.com/repository/public/' }
+ maven { url 'https://maven.aliyun.com/repository/google' }
+```
+
+
         项目中的build.gradle
         buildscript {
             repositories {
