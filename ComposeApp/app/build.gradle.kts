@@ -63,6 +63,11 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.serialization.json)
 
+    // http
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.converter.moshi)
+    implementation(libs.moshi)
+
     // navigation
     implementation(libs.androidx.navigation.compose)
 
