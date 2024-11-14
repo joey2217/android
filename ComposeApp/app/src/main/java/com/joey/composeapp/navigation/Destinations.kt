@@ -1,9 +1,13 @@
 package com.joey.composeapp.navigation
 
-sealed class Destinations(val route: String) {
+import kotlinx.serialization.Serializable
 
-    data object Home : Destinations("home")
+sealed interface Destinations {
 
-    data object Mine : Destinations("mine")
+    @Serializable
+    data object Main : Destinations
+
+    @Serializable
+    data object Mine : Destinations
 
 }
