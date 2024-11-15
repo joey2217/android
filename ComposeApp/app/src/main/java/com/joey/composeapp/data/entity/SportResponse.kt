@@ -1,4 +1,4 @@
-package com.joey.composeapp.entity
+package com.joey.composeapp.data.entity
 
 data class PageData(
     val total: Long,

@@ -1,4 +1,4 @@
-package com.joey.composeapp.screens
+package com.joey.composeapp.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -16,7 +16,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.joey.composeapp.entity.NavigationItem
+import com.joey.composeapp.data.entity.NavigationItem
 
 @Composable
 fun MainFrame() {

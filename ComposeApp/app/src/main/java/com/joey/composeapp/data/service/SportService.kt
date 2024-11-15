@@ -1,8 +1,8 @@
-package com.joey.composeapp.service
+package com.joey.composeapp.data.service
 
-import com.joey.composeapp.common.SportApi
-import com.joey.composeapp.entity.PageData
-import com.joey.composeapp.entity.SportBaseResponse
+import com.joey.composeapp.data.common.SportApi
+import com.joey.composeapp.data.entity.PageData
+import com.joey.composeapp.data.entity.SportBaseResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.http.QueryMap

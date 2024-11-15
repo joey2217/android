@@ -1,4 +1,4 @@
-package com.joey.composeapp.navigation
+package com.joey.composeapp.ui.navigation
 
 import kotlinx.serialization.Serializable
 

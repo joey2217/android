@@ -1,4 +1,4 @@
-package com.joey.composeapp.entity
+package com.joey.composeapp.data.entity
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
