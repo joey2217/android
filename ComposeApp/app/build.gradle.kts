@@ -63,6 +63,15 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.kotlinx.serialization.json)
 
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+
+    implementation(platform(libs.okhttp.bom))
+
+    // define any required OkHttp artifacts without version
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+
     // http
     implementation(libs.retrofit)
     implementation(libs.retrofit2.converter.moshi)
