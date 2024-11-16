@@ -1,11 +1,13 @@
 package com.joey.composeapp.data.entity
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 data class MatchPageDataResponse(
     val data: PageData
 ) : SportBaseResponse()
 
+@JsonClass(generateAdapter = true)
 data class PageData(
     val total: Int,
     val totalPage: Int,
@@ -18,6 +20,7 @@ data class PageData(
     val token: String
 )
 
+@JsonClass(generateAdapter = true)
 data class MatchData(
     @Json(name = "ateam_id") val awayTeamId: Int,
     @Json(name = "ateam_logo") val awayTeamLogo: String,
@@ -28,7 +31,7 @@ data class MatchData(
     val cid: Int,
     val clogo: String,
     @Json(name = "cur_round") val curRound: Int,
-    @Json(name = "daxiao_jishi") val odds: Int,
+    @Json(name = "daxiao_jishi") val odds: String,
     @Json(name = "global_live_urls") val globalLiveUrls: List<LiveURL>,
 
     @Json(name = "home_score_xiaojie") val homeScores: List<Int>? = null,
@@ -62,13 +65,15 @@ data class MatchData(
     @Json(name = "banchang") val halfCourt: String? = null,
 )
 
+
+@JsonClass(generateAdapter = true)
 data class LiveURL(
     val id: String? = null,
     val index: Int,
     @Json(name = "live_user_name") val liveUserName: String? = null,
     val name: String,
     @Json(name = "room_num") val roomNum: Int,
-    val seq: Int,
+    val seq: Int? = null,
     val url: String,
     val status: Int,
     @Json(name = "streamId") val streamID: String? = null,

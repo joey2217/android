@@ -8,7 +8,7 @@ import retrofit2.http.QueryMap
 
 interface SportService {
 
-    @GET("/match/list/new")
+    @GET("match/list/new")
     suspend fun fetchHotPageData(
         @Query("pn") page: Int = 1,
         @Query("type") type: Int = 1,

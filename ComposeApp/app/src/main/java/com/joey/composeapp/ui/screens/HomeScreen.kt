@@ -11,11 +11,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.joey.composeapp.ui.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(homeViewModel: HomeViewModel = HomeViewModel()) {
+fun HomeScreen(homeViewModel: HomeViewModel = viewModel()) {
     LaunchedEffect(true) {
         homeViewModel.fetchHotPageData(1)
     }

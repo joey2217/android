@@ -12,7 +12,8 @@ object SportApi {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(
-            HttpLoggingInterceptor(::println)
+            HttpLoggingInterceptor()
+                .setLevel(HttpLoggingInterceptor.Level.BASIC)
         )
         .build()
 
@@ -24,7 +25,7 @@ object SportApi {
                 Moshi.Builder()
                     .add(KotlinJsonAdapterFactory())
                     .build()
-            )
+            ).asLenient()
         )
         .build()
 
