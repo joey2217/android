@@ -1,13 +1,17 @@
 package com.joey.composeapp.ui.navigation
 
-import kotlinx.serialization.Serializable
 
-sealed interface Destinations {
+interface Destination {
+    val route: String
+}
 
-    @Serializable
-    data object Main : Destinations
+object Main : Destination {
+    override val route = "main"
+}
 
-    @Serializable
-    data object Mine : Destinations
-
+object Live : Destination {
+    const val argMatchId = "matchId"
+    const val argMatchType = "type"
+    const val bathPath = "live"
+    override val route = "$bathPath/{$argMatchId}/{$argMatchType}"
 }

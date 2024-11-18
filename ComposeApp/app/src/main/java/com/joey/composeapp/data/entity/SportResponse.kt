@@ -1,13 +1,11 @@
 package com.joey.composeapp.data.entity
 
 import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 
 data class MatchPageDataResponse(
     val data: PageData
 ) : SportBaseResponse()
 
-@JsonClass(generateAdapter = true)
 data class PageData(
     val total: Int,
     val totalPage: Int,
@@ -20,7 +18,6 @@ data class PageData(
     val token: String
 )
 
-@JsonClass(generateAdapter = true)
 data class MatchData(
     @Json(name = "ateam_id") val awayTeamId: Int,
     @Json(name = "ateam_logo") val awayTeamLogo: String,
@@ -29,28 +26,28 @@ data class MatchData(
     @Json(name = "away_score_xiaojie") val awayScores: List<Int>? = null,
 
     val cid: Int,
-    val clogo: String,
-    @Json(name = "cur_round") val curRound: Int,
-    @Json(name = "daxiao_jishi") val odds: String,
+    val clogo: String? = null,
+    @Json(name = "cur_round") val curRound: Int? = null,
+    @Json(name = "daxiao_jishi") val odds: String? = null,
     @Json(name = "global_live_urls") val globalLiveUrls: List<LiveURL>,
 
     @Json(name = "home_score_xiaojie") val homeScores: List<Int>? = null,
     @Json(name = "hteam_id") val homeTeamId: Int,
     @Json(name = "hteam_logo") val homeTeamLogo: String,
+    @Json(name = "hteam_name") val homeTeamName: String,
     @Json(name = "hteam_red") val homeTeamRed: Int? = null,
     @Json(name = "hteam_yellow") val hteamYellow: Int? = null,
-    @Json(name = "hteam_name") val homeTeamName: String,
 
     val id: Long,
-    @Json(name = "is_zd") val isZd: String,
-    val level: Int,
+    @Json(name = "is_zd") val isZd: String? = null,
+    val level: Int? = null,
     @Json(name = "live_cartoon_url") val liveCartoonUrls: List<LiveURL>? = null,
     @Json(name = "live_urls") val liveUrls: List<LiveURL>? = null,
     @Json(name = "matchtime") val matchTime: String,
     @Json(name = "matchtime_en") val matchTimeEn: String,
     @Json(name = "mirror_live_urls") val mirrorLiveUrls: List<LiveURL>,
     val name: String,
-    @Json(name = "ouzhi_jishi") val ouZhi: String,
+    @Json(name = "ouzhi_jishi") val ouZhi: String? = null,
     val score: String,
     val status: Int,
     @Json(name = "status_up") val statusUp: Int,
@@ -58,15 +55,14 @@ data class MatchData(
     val time: String,
     val type: Int,
     @Json(name = "video_url") val videoUrl: String,
-    @Json(name = "yazhi_jishi") val yaZhi: String,
-    @Json(name = "zd_level") val zdLevel: String,
-    @Json(name = "zoneIdString") val zoneIdString: String,
+    @Json(name = "yazhi_jishi") val yaZhi: String? = null,
+    @Json(name = "zd_level") val zdLevel: String? = null,
+    @Json(name = "zoneIdString") val zoneIdString: String? = null,
     @Json(name = "jiaoqiu") val cornerKick: String? = null,
     @Json(name = "banchang") val halfCourt: String? = null,
 )
 
 
-@JsonClass(generateAdapter = true)
 data class LiveURL(
     val id: String? = null,
     val index: Int,

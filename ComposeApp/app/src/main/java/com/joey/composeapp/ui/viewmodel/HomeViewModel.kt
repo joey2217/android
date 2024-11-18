@@ -5,6 +5,7 @@ import com.joey.composeapp.data.entity.MatchPageData
 import com.joey.composeapp.data.service.SportService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 
 class HomeViewModel : ViewModel() {
     private val service = SportService.instance()
@@ -16,14 +17,16 @@ class HomeViewModel : ViewModel() {
     suspend fun fetchHotPageData(page: Int = 1) {
         val res = service.fetchHotPageData(page)
         val data = res.data
-        _matchPageState.value = MatchPageData(
-            total = data.total,
-            totalPage = data.totalPage,
-            items = data.dataList,
-            hots = data.notopList,
-            liveType = data.liveType,
-            starttime = data.starttime,
-            currentPage = data.currentPage
-        )
+        _matchPageState.update {
+            it.copy(
+                total = data.total,
+                totalPage = data.totalPage,
+                items = data.dataList,
+                hots = data.topList,
+                liveType = data.liveType,
+                starttime = data.starttime,
+                currentPage = data.currentPage
+            )
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.joey.composeapp.data.service
 
 import com.joey.composeapp.data.common.SportApi
+import com.joey.composeapp.data.entity.LiveDataResponse
 import com.joey.composeapp.data.entity.MatchPageDataResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -23,6 +24,18 @@ interface SportService {
         )
     ): MatchPageDataResponse
 
+    @GET("match/detail")
+    suspend fun fetchMatchDetailData(
+        @Query("mid") matchId: Long,
+        @Query("type") type: Int = 1,
+        @QueryMap params: Map<String, String> = mapOf(
+            "isnew" to "1",
+            "pid" to "0",
+            "langtype" to "zh",
+            "test" to "1",
+            "zoneId" to "Asia/Shanghai",
+        )
+    ): LiveDataResponse
 
     companion object {
         fun instance(): SportService {

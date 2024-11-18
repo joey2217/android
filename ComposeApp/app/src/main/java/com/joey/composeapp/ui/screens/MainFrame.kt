@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import com.joey.composeapp.data.entity.NavigationItem
 
 @Composable
-fun MainFrame() {
+fun MainFrame(navigateToLive: (matchId: Long, type: Int) -> Unit) {
     var selectedItem by remember {
         mutableIntStateOf(0)
     }
@@ -51,7 +51,10 @@ fun MainFrame() {
             modifier = Modifier.padding(it)
         ) {
             when (selectedItem) {
-                0 -> HomeScreen()
+                0 -> HomeScreen(
+                    navigateToLive = navigateToLive
+                )
+
                 1 -> MineScreen()
             }
         }
