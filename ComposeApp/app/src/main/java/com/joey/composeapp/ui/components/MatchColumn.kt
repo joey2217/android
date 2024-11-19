@@ -26,6 +26,7 @@ fun MatchColumn(matchData: MatchData, navigateToLive: ((matchId: Long, type: Int
                 Text(text = "${matchData.awayTeamName} VS ${matchData.homeTeamName}")
                 Text(text = "type=${matchData.type}")
                 Text(text = "id=${matchData.id}")
+                Text(text = "statusUpName=${matchData.statusUpName}")
             }
         }
     }

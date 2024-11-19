@@ -19,7 +19,10 @@ import com.joey.composeapp.ui.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(homeViewModel: HomeViewModel = viewModel(), navigateToLive: (matchId: Long, type: Int) -> Unit) {
+fun HomeScreen(
+    homeViewModel: HomeViewModel = viewModel(),
+    navigateToLive: (matchId: Long, type: Int) -> Unit
+) {
     LaunchedEffect(true) {
         homeViewModel.fetchHotPageData(1)
     }
@@ -37,7 +40,7 @@ fun HomeScreen(homeViewModel: HomeViewModel = viewModel(), navigateToLive: (matc
     ) { contentPadding ->
         Box(modifier = Modifier.padding(contentPadding)) {
             LazyColumn {
-                items(matchUiDataState.items) {
+                items(matchUiDataState.hots) {
                     MatchColumn(it, navigateToLive)
                 }
             }

@@ -72,6 +72,12 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
+    // media3 exoplayer
+    implementation(libs.androidx.media3.media3.exoplayer)
+    implementation(libs.androidx.media3.media3.exoplayer.dash)
+    implementation(libs.androidx.media3.media3.ui)
+    implementation(libs.androidx.media3.exoplayer.hls)
+
     // http
     implementation(libs.retrofit)
     implementation(libs.retrofit2.converter.moshi)

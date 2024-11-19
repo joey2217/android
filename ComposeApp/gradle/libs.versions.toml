@@ -12,12 +12,17 @@ composeBom = "2024.09.03"
 moshi = "1.15.1"
 navigationCompose = "2.8.2"
 okhttpBom = "4.12.0"
+playerVersion = "1.4.1"
 retrofit = "2.11.0"
 vmComposeVersion = "2.8.6"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "vmComposeVersion" }
+androidx-media3-exoplayer-hls = { module = "androidx.media3:media3-exoplayer-hls", version.ref = "playerVersion" }
+androidx-media3-media3-ui = { module = "androidx.media3:media3-ui", version.ref = "playerVersion" }
+androidx-media3-media3-exoplayer-dash = { module = "androidx.media3:media3-exoplayer-dash", version.ref = "playerVersion" }
+androidx-media3-media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "playerVersion" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
