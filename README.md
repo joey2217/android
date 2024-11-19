@@ -9,6 +9,7 @@
 distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 #distributionUrl=https\://services.gradle.org/distributions/gradle-8.7-bin.zip
+#distributionUrl=https:\//mirrors.cloud.tencent.com/gradle/gradle-8.7-all.zip
 distributionUrl=https:\//mirrors.aliyun.com/gradle/distributions/v8.7.0/gradle-8.7-all.zip
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
@@ -19,12 +20,12 @@ zipStorePath=wrapper/dists
 ```kts
 pluginManagement {
     repositories {
+        maven { url = uri("https://mirrors.cloud.tencent.com/maven") }
         maven { url = uri("https://maven.aliyun.com/repository/releases") }
         maven { url = uri("https://maven.aliyun.com/repository/google") }
         maven { url = uri("https://maven.aliyun.com/repository/central") }
         maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://mirrors.cloud.tencent.com/maven") }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -39,12 +40,12 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url = uri("https://mirrors.cloud.tencent.com/maven") }
         maven { url = uri("https://maven.aliyun.com/repository/releases") }
         maven { url = uri("https://maven.aliyun.com/repository/google") }
         maven { url = uri("https://maven.aliyun.com/repository/central") }
         maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         maven { url = uri("https://maven.aliyun.com/repository/public") }
-        maven { url = uri("https://mirrors.cloud.tencent.com/maven") }
         google()
         mavenCentral()
     }
