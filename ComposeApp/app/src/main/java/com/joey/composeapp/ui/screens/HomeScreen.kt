@@ -10,8 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.joey.composeapp.ui.components.MatchColumn
@@ -27,8 +25,6 @@ fun HomeScreen(
         homeViewModel.fetchHotPageData(1)
     }
 
-    val matchUiDataState by homeViewModel.matchPageState.collectAsState()
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -40,7 +36,7 @@ fun HomeScreen(
     ) { contentPadding ->
         Box(modifier = Modifier.padding(contentPadding)) {
             LazyColumn {
-                items(matchUiDataState.hots) {
+                items(homeViewModel.matchPageUiState.hots) {
                     MatchColumn(it, navigateToLive)
                 }
             }

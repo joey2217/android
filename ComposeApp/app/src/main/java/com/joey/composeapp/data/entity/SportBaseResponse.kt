@@ -1,6 +1,7 @@
 package com.joey.composeapp.data.entity
 
-open class SportBaseResponse {
+abstract class SportBaseResponse<T> {
     val code: String = "0"
     val message: String = "ok"
+    abstract val data: T
 }

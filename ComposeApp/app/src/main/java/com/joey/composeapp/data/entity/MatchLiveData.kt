@@ -3,8 +3,8 @@ package com.joey.composeapp.data.entity
 import com.squareup.moshi.Json
 
 data class LiveDataResponse(
-    val data: MatchLiveData
-) : SportBaseResponse()
+    override val data: MatchLiveData
+) : SportBaseResponse<MatchLiveData>()
 
 data class MatchLiveData(
     @Json(name = "hascount") val hasCount: Int,

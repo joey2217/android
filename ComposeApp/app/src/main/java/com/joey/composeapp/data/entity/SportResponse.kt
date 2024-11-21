@@ -3,8 +3,8 @@ package com.joey.composeapp.data.entity
 import com.squareup.moshi.Json
 
 data class MatchPageDataResponse(
-    val data: PageData
-) : SportBaseResponse()
+    override val data: PageData
+) : SportBaseResponse<PageData>()
 
 data class PageData(
     val total: Int,
