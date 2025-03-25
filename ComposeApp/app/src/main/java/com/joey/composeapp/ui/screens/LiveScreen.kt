@@ -20,28 +20,30 @@ import com.joey.composeapp.data.entity.MatchData
 import com.joey.composeapp.ui.components.LivePlayer
 import com.joey.composeapp.ui.components.MatchColumn
 import com.joey.composeapp.ui.viewmodel.MatchLiveViewModel
+import com.joey.composeapp.ui.viewmodel.PlayerViewModel
 
 @Composable
 fun LiveScreen(
-    matchId: Long, type: Int, matchLiveViewModel: MatchLiveViewModel = viewModel(),
+    matchId: Long,
+    type: Int,
+    matchLiveViewModel: MatchLiveViewModel = viewModel(),
+    playerViewModel: PlayerViewModel = viewModel(),
     lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
 ) {
+    val context = LocalContext.current
 
     LaunchedEffect(
-        true
+        Unit
     ) {
         matchLiveViewModel.fetchMatchLiveData(matchId, type)
     }
 
-    var player: ExoPlayer? = null
-
-    DisposableEffect(lifecycleOwner) {
+    // 释放 ExoPlayer
+    DisposableEffect(Unit) {
         onDispose {
-            // Clean up when the screen is destroyed
-            player?.release()
+            playerViewModel.releasePlayer()
         }
     }
-
 
     val liveDataState by matchLiveViewModel.liveDataState.collectAsStateWithLifecycle()
 
@@ -49,16 +51,10 @@ fun LiveScreen(
         Box(modifier = Modifier.padding(padding)) {
             Column {
                 liveDataState?.let {
-                    player = ExoPlayer.Builder(LocalContext.current).build()
+                    playerViewModel.initializePlayer(context)
                     val videoUri = it.globalLiveUrls[0].url
-                    val mediaItem = MediaItem.fromUri(videoUri)
-                    player.setMediaItem(mediaItem)
-                    // Prepare the player.
-                    player.prepare()
-                    // Start the playback.
-                    player.play()
-
-                    LivePlayer(player)
+                    playerViewModel.playHlsStream(videoUri)
+                    
                     LiveSection(it)
                 }
             }
